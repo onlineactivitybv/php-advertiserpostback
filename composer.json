@@ -1,0 +1,20 @@
+{
+    "name": "onlineactivitybv/php-advertiserpostback",
+    "description": "PHP Library to setup postback tracking",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sander Backus",
+            "email": "sander@onlineactivity.nl"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-curl": "*"
+    },"autoload": {
+        "psr-4": {
+            "OnlineActivityBV\\AdvertiserPostback\\": "src/OnlineActivityBV/AdvertiserPostback/"
+        }
+    }
+}
