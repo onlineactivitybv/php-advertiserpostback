@@ -28,7 +28,7 @@ $oa = new AdvertiserPostback(1, /* Here advertiser ID given by OA **/
 ----------
 Landingpage: 
 
-Add this code to the TOP of your landingpage (sets cookie so needs to be before any other output.
+Add this code to the TOP of your landing page (sets cookie so needs to be before any other output.
 ```php
 $oa->landingPage(); 
 ```
