@@ -107,6 +107,10 @@ class AdvertiserPostback
 				'transactie_id' => $conversionIdentfier,
 				'clickid' => $clickId,
 			];
+			
+			if ($orderValue) {
+				$q['orderwaarde'] = $orderValue; 
+			}
 
 			$ch = curl_init('http://oa1.nl/callback/click.php?' . http_build_query($q));
 			curl_setopt($ch, CURLOPT_USERAGENT, 'OnlineActivity/AdvertiserPostback');
