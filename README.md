@@ -1,6 +1,7 @@
 # php-advertiserpostback
 PHP Library to setup postback tracking
 
+[Postback concept explained](doc/postbackconcept.md)
 
 ### Installation
 
