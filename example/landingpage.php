@@ -13,6 +13,11 @@ $oa = new AdvertiserPostback(1, 'abdddsdsdsjhdshjshj33jhhjdshjc', 'oa_clickid');
 $oa->landingPage(); 
 
 ?>
+<a href="?oa_clickid=TESTHEHE">1. Add test parameter to URL!</a><br>
+<a href="thanks.php">2. Test conversion</a><br>
+<br>
+
+
 <strong>Cookies: </strong><br>
 <pre><?php
 	var_export($_COOKIE ?? null);
@@ -27,4 +32,3 @@ $oa->landingPage();
 	var_export($oa->getClickId()); 
 ?></pre>
 
-<a href="thanks.php">Test conversion</a>
