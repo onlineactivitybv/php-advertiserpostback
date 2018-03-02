@@ -8,16 +8,16 @@ class AdvertiserPostback
 	public $cookieName = 'oaClickId';
 	public $sessionName = 'oaClickId';
 	protected $cookieDomain = null;
+	protected $trackingDomain = null; 
 
 	private $adv_hash;
-	private $adv_id;
 
-	public function __construct(int $adv_id, string $adv_hash, $variable = 'oa_clickid', $cookieDomain = null)
+	public function __construct(string $adv_hash, $tracking_domain = 'oa6.nl', $variable = 'oa_clickid', $cookieDomain = null)
 	{
 		$this->clickIdVariableName = $variable;
 		$this->cookieDomain = $cookieDomain;
+		$this->trackingDomain = $trackingDomain; 
 
-		$this->adv_id = $adv_id;
 		$this->adv_hash = $adv_hash;
 	}
 
@@ -102,18 +102,17 @@ class AdvertiserPostback
 		if($clickId) {
 			// post conversion to Online Activity
 			$q = [
-				'adv' => $this->adv_id,
-				'idh' => $this->adv_hash,
-				'transactie_id' => $conversionIdentfier,
-				'clickid' => $clickId,
+				'credentials' => $this->adv_hash,
+				'unique_conversion_id' => $conversionIdentfier,
+				'click_id' => $clickId,
 			];
 			
 			if ($orderValue) {
-				$q['orderwaarde'] = $orderValue; 
+				$q['ordervalue'] = $orderValue; 
 			}
 
-			$ch = curl_init('http://oa1.nl/callback/click.php?' . http_build_query($q));
-			curl_setopt($ch, CURLOPT_USERAGENT, 'OnlineActivity/AdvertiserPostback');
+			$ch = curl_init('http://' . $this->trackingDomain . '/postback/?' . http_build_query($q));
+			curl_setopt($ch, CURLOPT_USERAGENT, 'OnlineActivity/AdvertiserPostback2');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 3);

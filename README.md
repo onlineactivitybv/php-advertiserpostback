@@ -7,7 +7,7 @@ PHP Library to setup postback tracking
 
 Composer: 
 
-    $ composer require onlineactivitybv/php-advertiserpostback "^1"
+    $ composer require onlineactivitybv/php-advertiserpostback "^2"
     
 #### Requirements
 
@@ -21,8 +21,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use OnlineActivityBV\AdvertiserPostback\AdvertiserPostback; 
 
-$oa = new AdvertiserPostback(1, /* Here advertiser ID given by OA **/
-     'abdddsdsdsjhdshjshj33jhhjdshjc', /* Here advertiser hash given by OA **/ 
+$oa = new AdvertiserPostback(
+	 'abdddsdsdsjhdshjshj33jhhjdshjc', /* Here credentials given by OA **/ 
+     'oa6.nl', /* tracking domain, given bij OA */
      'oa_clickid' /* $_GET variable name used to send click id to lander **/); 
 ```
 
