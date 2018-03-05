@@ -16,7 +16,7 @@ class AdvertiserPostback
 	{
 		$this->clickIdVariableName = $variable;
 		$this->cookieDomain = $cookieDomain;
-		$this->trackingDomain = $trackingDomain; 
+		$this->trackingDomain = $tracking_domain; 
 
 		$this->adv_hash = $adv_hash;
 	}
