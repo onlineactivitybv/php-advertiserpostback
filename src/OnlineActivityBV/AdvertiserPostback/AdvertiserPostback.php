@@ -93,7 +93,7 @@ class AdvertiserPostback
 		return false;
 	}
 
-	public function addConversion($conversionIdentfier,  string $clickId = null, $orderValue = null) : bool
+	public function addConversion($conversionIdentfier, $eventId = null, string $clickId = null, $orderValue = null) : bool
 	{
 		if (!$clickId) {
 			$clickId = $this->getClickId();
@@ -109,6 +109,9 @@ class AdvertiserPostback
 			
 			if ($orderValue) {
 				$q['ordervalue'] = $orderValue; 
+			}
+			if ($eventId) {
+				$q['event'] = $eventId; 
 			}
 
 			$ch = curl_init('http://' . $this->trackingDomain . '/postback/?' . http_build_query($q));

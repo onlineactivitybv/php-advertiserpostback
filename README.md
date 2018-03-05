@@ -48,6 +48,6 @@ With ClickID you can either choose to run postback on thank you page or you can 
 ```php
 // first outout thank you HTML.
 fastcgi_finish_request(); // optional, recommended not to delay output of thank you HTML.
-$conversionStatus = $oa->addConversion($lead_id = 376, $clickId);
+$conversionStatus = $oa->addConversion($lead_id = 376, $eventId, $clickId);
 ```
 
