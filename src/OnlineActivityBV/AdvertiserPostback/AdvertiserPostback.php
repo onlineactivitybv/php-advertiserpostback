@@ -27,7 +27,7 @@ class AdvertiserPostback
 		$cookie_exists = isset($_COOKIE['PHPSESSID']);
 		$session_started = session_id() != '';
 
-		if(($cookie_exists || $force) && !$session_started) {
+		if (($cookie_exists || $force) && !$session_started) {
 			session_set_cookie_params(session_get_cookie_params()['lifetime'], '/', $this->getCookieDomain());
 			session_start();
 		}
@@ -35,7 +35,7 @@ class AdvertiserPostback
 
 	protected function getCookieDomain() : string
 	{
-		if($this->cookieDomain) {
+		if ($this->cookieDomain) {
 			return $this->cookieDomain;
 		}
 
@@ -51,7 +51,7 @@ class AdvertiserPostback
 
 	public function clickIdFromUrl()
 	{
-		if(isset($_REQUEST[$this->clickIdVariableName]) && $_REQUEST[$this->clickIdVariableName]) {
+		if (isset($_REQUEST[$this->clickIdVariableName]) && $_REQUEST[$this->clickIdVariableName]) {
 			return $_REQUEST[$this->clickIdVariableName];
 		}
 		return false;
@@ -99,7 +99,7 @@ class AdvertiserPostback
 			$clickId = $this->getClickId();
 		}
 
-		if($clickId) {
+		if ($clickId) {
 			// post conversion to Online Activity
 			$q = [
 				'credentials' => $this->adv_hash,
