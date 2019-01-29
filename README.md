@@ -22,8 +22,8 @@ require __DIR__ . '/vendor/autoload.php';
 use OnlineActivityBV\AdvertiserPostback\AdvertiserPostback; 
 
 $oa = new AdvertiserPostback(
-	 'abdddsdsdsjhdshjshj33jhhjdshjc', /* Here credentials given by OA **/ 
-     'oa6.nl', /* tracking domain, given bij OA */
+	 'abdddsdsdsjhdshjshj33jhhjdshjc', /* Here credentials provided by OA **/ 
+     'oa6.nl', /* tracking domain, provided by OA */
      'oa_clickid' /* $_GET variable name used to send click id to lander **/); 
 ```
 
